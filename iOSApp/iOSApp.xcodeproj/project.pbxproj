@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A7BE2E152325946600CBABE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE2E142325946600CBABE1 /* AppDelegate.swift */; };
-		A7BE2E172325946600CBABE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE2E162325946600CBABE1 /* SceneDelegate.swift */; };
 		A7BE2E192325946600CBABE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE2E182325946600CBABE1 /* ViewController.swift */; };
 		A7BE2E1C2325946600CBABE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BE2E1A2325946600CBABE1 /* Main.storyboard */; };
 		A7BE2E1E2325946700CBABE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7BE2E1D2325946700CBABE1 /* Assets.xcassets */; };
@@ -53,7 +52,6 @@
 /* Begin PBXFileReference section */
 		A7BE2E112325946600CBABE1 /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7BE2E142325946600CBABE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7BE2E162325946600CBABE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A7BE2E182325946600CBABE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A7BE2E1B2325946600CBABE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7BE2E1D2325946700CBABE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,12 +116,10 @@
 		A7BE2E132325946600CBABE1 /* iOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				A7BE2E142325946600CBABE1 /* AppDelegate.swift */,
-				A7BE2E162325946600CBABE1 /* SceneDelegate.swift */,
-				A7BE2E182325946600CBABE1 /* ViewController.swift */,
-				A7BE2E1A2325946600CBABE1 /* Main.storyboard */,
+				A7C013372325971D005CB79E /* Storyboards */,
+				A7C013312325966F005CB79E /* Sources */,
+				A7C0133823259750005CB79E /* Application */,
 				A7BE2E1D2325946700CBABE1 /* Assets.xcassets */,
-				A7BE2E1F2325946700CBABE1 /* LaunchScreen.storyboard */,
 				A7BE2E222325946700CBABE1 /* Info.plist */,
 			);
 			path = iOSApp;
@@ -153,6 +149,31 @@
 				A7BE2E452325947C00CBABE1 /* Framework.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7C013312325966F005CB79E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A7BE2E182325946600CBABE1 /* ViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A7C013372325971D005CB79E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A7BE2E1A2325946600CBABE1 /* Main.storyboard */,
+				A7BE2E1F2325946700CBABE1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A7C0133823259750005CB79E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A7BE2E142325946600CBABE1 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +310,6 @@
 			files = (
 				A7BE2E192325946600CBABE1 /* ViewController.swift in Sources */,
 				A7BE2E152325946600CBABE1 /* AppDelegate.swift in Sources */,
-				A7BE2E172325946600CBABE1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3MK9462Q;
 				INFOPLIST_FILE = iOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +493,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.homeip.paray.iOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -483,6 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3MK9462Q;
 				INFOPLIST_FILE = iOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,7 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.homeip.paray.iOSApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
