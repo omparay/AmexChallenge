@@ -40,7 +40,17 @@
 - (void)start {
     [locationManager requestWhenInUseAuthorization];
     [motionManager startAccelerometerUpdatesToQueue:managerQueue withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
-        
+        if (error != NULL) {
+            [self delegateError:error.localizedDescription];
+        }
+        if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(acceleratedOn:andOn:andOn:)])) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate
+                 acceleratedOn:accelerometerData.acceleration.x
+                 andOn:accelerometerData.acceleration.y
+                 andOn:accelerometerData.acceleration.z];
+            });
+        }
     }];
 }
 
@@ -57,12 +67,20 @@
 
 - (void)delegateError:(NSString *)description {
     if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(gotError:)])) {
-        [self.delegate gotError:description];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate gotError:description];
+        });
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    
+    if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(locatedOn:andOn:)])) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            unsigned long last = locations.count - 1;
+            CLLocation* latest = locations[last];
+            [self.delegate locatedOn:latest.coordinate.latitude andOn:latest.coordinate.longitude];
+        });
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
