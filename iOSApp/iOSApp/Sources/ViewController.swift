@@ -71,5 +71,11 @@ class ViewController: UIViewController,DATAManagerDelegate {
             self.weatherView.text = jsonString
         }
     }
+    
+    func gotError(_ description: String) {
+        let alertController = UIAlertController(title: "Error:", message: description, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 

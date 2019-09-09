@@ -41,7 +41,13 @@
 }
 
 - (void)start {
-    [locationManager requestWhenInUseAuthorization];
+    CLAuthorizationStatus locationManagerStatus = [CLLocationManager authorizationStatus];
+    if (locationManagerStatus == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestWhenInUseAuthorization];
+    } else {
+        [locationManager startUpdatingLocation];
+    }
+
     [motionManager startAccelerometerUpdatesToQueue:managerQueue withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
         if (error != NULL) {
             [self delegateError:error.localizedDescription];
@@ -65,7 +71,7 @@
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     CLAuthorizationStatus locationManagerStatus = [CLLocationManager authorizationStatus];
     if (locationManagerStatus != kCLAuthorizationStatusAuthorizedWhenInUse) {
-        [self.delegate gotError:@"I need authorization to use GPS!!!"];
+        [self delegateError:@"I need authorization to use the GPS!!!"];
     } else {
         [locationManager startUpdatingLocation];
     }
