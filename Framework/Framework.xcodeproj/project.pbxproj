@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A78AE68E2325CC00006B650E /* DATAManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A78AE68C2325CC00006B650E /* DATAManager.h */; };
+		A78AE68F2325CC00006B650E /* DATAManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78AE68D2325CC00006B650E /* DATAManager.m */; };
 		A7BE2DB0232593F200CBABE1 /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BE2DA6232593F200CBABE1 /* Framework.framework */; };
 		A7BE2DB5232593F200CBABE1 /* FrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BE2DB4232593F200CBABE1 /* FrameworkTests.m */; };
 		A7BE2DB7232593F200CBABE1 /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BE2DA9232593F200CBABE1 /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A78AE68C2325CC00006B650E /* DATAManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DATAManager.h; sourceTree = "<group>"; };
+		A78AE68D2325CC00006B650E /* DATAManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DATAManager.m; sourceTree = "<group>"; };
 		A7BE2DA6232593F200CBABE1 /* Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7BE2DA9232593F200CBABE1 /* Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		A7BE2DAA232593F200CBABE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		A7C0133023259665005CB79E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A78AE68C2325CC00006B650E /* DATAManager.h */,
+				A78AE68D2325CC00006B650E /* DATAManager.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -117,6 +123,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78AE68E2325CC00006B650E /* DATAManager.h in Headers */,
 				A7BE2DB7232593F200CBABE1 /* Framework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78AE68F2325CC00006B650E /* DATAManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
