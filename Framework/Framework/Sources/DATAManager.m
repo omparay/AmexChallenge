@@ -31,6 +31,8 @@
   if (self = [super init]) {
       locationManager = [[CLLocationManager alloc] init];
       locationManager.delegate = self;
+      locationManager.pausesLocationUpdatesAutomatically = YES;
+      locationManager.activityType = CLActivityTypeFitness;
       motionManager = [[CMMotionManager alloc] init];
       managerQueue = [[NSOperationQueue alloc] init];
       [managerQueue setQualityOfService:NSQualityOfServiceBackground];
@@ -46,11 +48,6 @@
         }
         if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(acceleratedOnX:andOnY:andOnZ:)])) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                
-#if DEBUG
-                NSLog(@"Accel: X(%lf) Y(%lf) Z(%lf)",accelerometerData.acceleration.x,accelerometerData.acceleration.y,accelerometerData.acceleration.z);
-#endif
-                
                 [self.delegate
                  acceleratedOnX:accelerometerData.acceleration.x
                  andOnY:accelerometerData.acceleration.y
@@ -87,9 +84,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             unsigned long last = locations.count - 1;
             CLLocation* latest = locations[last];
-            #if DEBUG
-            NSLog(@"Loc: LAT(%lf) LONG(%lf)",latest.coordinate.latitude,latest.coordinate.longitude);
-            #endif
             [self.delegate locatedOnLat:latest.coordinate.latitude andLong:latest.coordinate.longitude];
         });
     }
