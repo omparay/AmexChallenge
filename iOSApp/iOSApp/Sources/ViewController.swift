@@ -6,13 +6,22 @@
 //  Copyright © 2019 Oliver Paray. All rights reserved.
 //
 
+import Framework
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    
+    @IBOutlet weak var latitudeField: UILabel!
+    @IBOutlet weak var longitudeField: UILabel!
+    @IBOutlet weak var xAccelField: UILabel!
+    @IBOutlet weak var yAccelField: UILabel!
+    @IBOutlet weak var zAccelField: UILabel!
+    @IBOutlet weak var weatherView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 
