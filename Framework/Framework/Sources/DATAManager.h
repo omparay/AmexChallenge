@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol DATAManagerDelegate <NSObject>
 
 @required
-- (void)locatedOn:(double)latitude andOn:(double)longtitude;
-- (void)acceleratedOn:(double)a andOn:(double)y andOn:(double)z;
+- (void)locatedOnLat:(double)latitude andLong:(double)longitude;
+- (void)acceleratedOnX:(double)x andOnY:(double)y andOnZ:(double)z;
 - (void)received:(NSData *) data;
 
 @optional
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)sharedInstance;
 - (void)start;
 - (void)stop;
-- (void)executeiTunesSearchWith:(NSString *)term;
+- (void)executeWeatherSearchWith:(double)latitude andWith:(double)longitude;
 
 @end
 

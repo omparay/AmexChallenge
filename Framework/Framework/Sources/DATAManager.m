@@ -43,12 +43,12 @@
         if (error != NULL) {
             [self delegateError:error.localizedDescription];
         }
-        if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(acceleratedOn:andOn:andOn:)])) {
+        if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(acceleratedOnX:andOnY:andOnZ:)])) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.delegate
-                 acceleratedOn:accelerometerData.acceleration.x
-                 andOn:accelerometerData.acceleration.y
-                 andOn:accelerometerData.acceleration.z];
+                 acceleratedOnX:accelerometerData.acceleration.x
+                 andOnY:accelerometerData.acceleration.y
+                 andOnZ:accelerometerData.acceleration.z];
             });
         }
     }];
@@ -74,11 +74,11 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(locatedOn:andOn:)])) {
+    if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(locatedOnLat:andLong:)])) {
         dispatch_async(dispatch_get_main_queue(), ^{
             unsigned long last = locations.count - 1;
             CLLocation* latest = locations[last];
-            [self.delegate locatedOn:latest.coordinate.latitude andOn:latest.coordinate.longitude];
+            [self.delegate locatedOnLat:latest.coordinate.latitude andLong:latest.coordinate.longitude];
         });
     }
 }
