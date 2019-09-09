@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak) id<DATAManagerDelegate> delegate;
 
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 - (void)start;
 - (void)stop;
 - (void)executeWeatherSearchWith:(double)latitude andWith:(double)longitude;

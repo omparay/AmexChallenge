@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,DATAManagerDelegate {
     
-    let manager = DATAManager.shared
+    //MARK: Properties
+    var manager = DATAManager.sharedInstance()
     
+    //MARK: Outlets
     @IBOutlet weak var latitudeField: UILabel!
     @IBOutlet weak var longitudeField: UILabel!
     @IBOutlet weak var xAccelField: UILabel!
@@ -19,10 +21,45 @@ class ViewController: UIViewController {
     @IBOutlet weak var zAccelField: UILabel!
     @IBOutlet weak var weatherView: UITextView!
     
+    //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    //MARK: Actions
+
+    @IBAction func buttonPressed(sender: UIButton){
+        guard let title = sender.titleLabel, let text = title.text else {
+            return
+        }
+        
+        if text == "Start" {
+            sender.setTitle("Stop", for: .normal)
+            manager.start()
+        } else {
+            sender.setTitle("Start", for: .normal)
+            manager.stop()
+        }
     }
 
+    func located(onLat latitude: Double, andLong longitude: Double) {
+        latitudeField.text = "\(latitude)"
+        longitudeField.text = "\(longitude)"
+    }
+    
+    func acceleratedOn(x: Double, andOnY y: Double, andOnZ z: Double) {
+        xAccelField.text = "\(x)"
+        yAccelField.text = "\(y)"
+        zAccelField.text = "\(z)"
+    }
+    
+    func received(_ data: Data) {
+    }
 
 }
 
