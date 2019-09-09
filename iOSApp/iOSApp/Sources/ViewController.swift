@@ -9,10 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController,DATAManagerDelegate {
-    
-    //MARK: Properties
-    var manager = DATAManager.sharedInstance()
-    
+        
     //MARK: Outlets
     @IBOutlet weak var latitudeField: UILabel!
     @IBOutlet weak var longitudeField: UILabel!
@@ -21,10 +18,15 @@ class ViewController: UIViewController,DATAManagerDelegate {
     @IBOutlet weak var zAccelField: UILabel!
     @IBOutlet weak var weatherView: UITextView!
     
+    //MARK: Properties
+    var manager = DATAManager.sharedInstance()
+    var instructionText: String?
+
     //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self
+        instructionText = self.weatherView.text
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +47,7 @@ class ViewController: UIViewController,DATAManagerDelegate {
             manager.start()
         } else {
             sender.setTitle("Start", for: .normal)
+            weatherView.text = instructionText
             manager.stop()
         }
     }
@@ -61,7 +64,12 @@ class ViewController: UIViewController,DATAManagerDelegate {
     }
     
     func received(_ data: Data) {
+        guard let jsonString = String(data: data, encoding: .utf8) else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.weatherView.text = jsonString
+        }
     }
-
 }
 

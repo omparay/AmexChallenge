@@ -95,7 +95,28 @@
 }
 
 - (void)executeWeatherSearchWithLat:(double)latitude andWithLong:(double)longitude {
-    
-}
+    NSString *urlString = [NSString stringWithFormat:@"https://api.openweathermap.org/data/2.5/forecast?appid=5d5fb2abfc152ac8380b7c62c2b0e8cd&units=imperial&lat=%lf&lon=%lf",latitude,longitude];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
 
+    if (url != NULL) {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        request.HTTPMethod = @"Get";
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+
+        [managerQueue addOperationWithBlock:^{
+            NSURLSessionDataTask *task = [[NSURLSession sharedSession]
+                                          dataTaskWithRequest:request
+                                          completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                              if ((error != nil) && (response != nil)){
+                                                  [self delegateError:error.localizedDescription];
+                                              } else {
+                                                  if ((response != nil) && (data != nil)){
+                                                      [self.delegate received:data];
+                                                  }
+                                              }
+                                          }];
+            [task resume];
+        }];
+    }
+}
 @end
