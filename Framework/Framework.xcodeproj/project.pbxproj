@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A78AE68E2325CC00006B650E /* DATAManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A78AE68C2325CC00006B650E /* DATAManager.h */; };
+		A78AE68E2325CC00006B650E /* DATAManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A78AE68C2325CC00006B650E /* DATAManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A78AE68F2325CC00006B650E /* DATAManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78AE68D2325CC00006B650E /* DATAManager.m */; };
 		A7BE2DB0232593F200CBABE1 /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BE2DA6232593F200CBABE1 /* Framework.framework */; };
 		A7BE2DB5232593F200CBABE1 /* FrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BE2DB4232593F200CBABE1 /* FrameworkTests.m */; };
@@ -299,7 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -354,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

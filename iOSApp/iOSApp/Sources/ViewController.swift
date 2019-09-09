@@ -6,12 +6,11 @@
 //  Copyright © 2019 Oliver Paray. All rights reserved.
 //
 
-import Framework
 import UIKit
 
 class ViewController: UIViewController {
     
-    
+    let manager = DATAManager.shared
     
     @IBOutlet weak var latitudeField: UILabel!
     @IBOutlet weak var longitudeField: UILabel!
