@@ -29,6 +29,8 @@ class ViewController: UIViewController,DATAManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.latitudeField.layer.borderColor = UIColor.black.cgColor
+        self.longitudeField.layer.borderColor = UIColor.black.cgColor
     }
     
     //MARK: Actions

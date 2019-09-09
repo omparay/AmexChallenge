@@ -6,4 +6,4 @@
 //  Copyright © 2019 Oliver Paray. All rights reserved.
 //
 
-#import <Framework/DATAManager.h>
+#import <Framework/Framework.h>

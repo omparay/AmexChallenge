@@ -31,7 +31,7 @@
   if (self = [super init]) {
       locationManager = [[CLLocationManager alloc] init];
       locationManager.delegate = self;
-      locationManager.pausesLocationUpdatesAutomatically = YES;
+      locationManager.pausesLocationUpdatesAutomatically = NO;
       locationManager.activityType = CLActivityTypeFitness;
       motionManager = [[CMMotionManager alloc] init];
       managerQueue = [[NSOperationQueue alloc] init];
@@ -81,9 +81,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     if ((self.delegate != NULL) && ([self.delegate respondsToSelector:@selector(locatedOnLat:andLong:)])) {
+        unsigned long last = locations.count - 1;
+        CLLocation* latest = locations[last];
+        [self executeWeatherSearchWithLat:latest.coordinate.latitude andWithLong:latest.coordinate.longitude];
         dispatch_async(dispatch_get_main_queue(), ^{
-            unsigned long last = locations.count - 1;
-            CLLocation* latest = locations[last];
             [self.delegate locatedOnLat:latest.coordinate.latitude andLong:latest.coordinate.longitude];
         });
     }
@@ -93,7 +94,7 @@
     [self delegateError:error.localizedDescription];
 }
 
-- (void)executeWeatherSearchWith:(double)latitude andWith:(double)longitude {
+- (void)executeWeatherSearchWithLat:(double)latitude andWithLong:(double)longitude {
     
 }
 

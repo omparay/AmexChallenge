@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 - (void)start;
 - (void)stop;
-- (void)executeWeatherSearchWith:(double)latitude andWith:(double)longitude;
+- (void)executeWeatherSearchWithLat:(double)latitude andWithLong:(double)longitude;
 
 @end
 

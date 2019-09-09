@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DATAManager.h"
 
 //! Project version number for Framework.
 FOUNDATION_EXPORT double FrameworkVersionNumber;
